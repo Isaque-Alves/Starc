@@ -1,0 +1,37 @@
+﻿@model Star.Models.Componente
+
+<a asp-controller="Componente" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
+
+<br />
+
+<center><h1>Componente:</h1></center>
+
+<br />
+<br />
+<form method="post">
+    <div class="form-group">
+        <label>Nome</label>
+        <input asp-for="Nome" class="form-control" required ="" />
+    </div>
+
+    <div class="form-group">
+        <label>Tipo do Componente</label>
+        <select asp-for="TipoComponenteId" class="form-control" asp-items="ViewBag.TipoComponente" required="">
+            <option></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Selecione o Cadastro</label>
+        <select asp-for="CadastroId" class="form-control" asp-items="ViewBag.Cadastro" required="">
+            <option></option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">
+            Salvar
+        </button>
+    </div>
+
+</form>

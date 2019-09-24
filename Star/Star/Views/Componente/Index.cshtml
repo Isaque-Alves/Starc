@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*Barra de Navegação*@
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">STAR</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" asp-controller="PainelC" asp-action="Index"> Componentes </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="PainelC" asp-action="Grupos">Grupos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="PainelC" asp-action="GerenciadorUSU">Gerenciador USU</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+-->
+
+
+
+
+
+
+<div class="container">
+    <br />
+    <center><h1>Componentes:</h1></center>
+    <br />
+    <div class="row">
+        <h3 class="pr-2">Adicionar</h3>
+        <a asp-controller="Componente" asp-action="Novo">
+            <img class="my-1" style="width: 25px; height: 25px" src="~/imagens/iconAdd.svg" alt="Adicionar Componente" />
+        </a>
+
+    </div>
+
+    <br />
+    <!--Div da Linha com 4 Cards-->
+    <div class="row">
+        <!--Div do Card com as informações-->
+        @foreach (Componente c in ViewBag.Dados)
+        {
+            @if (c.Status == true)
+            {
+                <div class="col-sm-2 d-flex">
+                    <div class="card bg-light border-dark flex-fill">
+                        <div class="card-header bg-transparent border-dark flex-fill">
+                            <center>
+                                <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
+                                    <img src="~/imagens/LampadaLigada.svg">
+                                </a>
+                                <h5>@c.Nome</h5>
+                            </center>
+                        </div>
+                        <div class="card-footer bg-transparent border-dark">
+                            <div class="row">
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Componente" asp-action="Editar" asp-route-id="@c.Id">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Componente" />
+                                    </a>
+
+                                </div>
+
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
+                                       onclick="return confirm('Tem certeza que deseja excluir o componente?');">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }else
+            {
+                <div class="col-sm-2 d-flex">
+                    <div class="card bg-light border-dark flex-fill">
+                        <div class="card-header bg-transparent border-dark flex-fill">
+                            <center>
+                                <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
+                                    <img src="~/imagens/LampadaDesligada.svg">
+                                </a>
+                                <h5>@c.Nome</h5>
+                            </center>
+                        </div>
+                        <div class="card-footer bg-transparent border-dark">
+                            <div class="row">
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Componente" asp-action="Editar" asp-route-id="@c.Id">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Componente" />
+                                    </a>
+
+                                </div>
+
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
+                                        onclick="return confirm('Tem certeza que deseja excluir o componente?');">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+   
+<!--     
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaLigada.svg">
+                        <h5>Lâmpada 1</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaLigada.svg">
+                        <h5>qweasdzxcqweasdzxcqweasdzxcqweasdzxcqwasdzxcqweasd</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaLigada.svg">
+                        <h5>Lâmpada 1</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaLigada.svg">
+                        <h5>Lâmpada 1</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaLigada.svg">
+                        <h5>Lâmpada 1</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <img src="~/imagens/LampadaDesligada.svg">
+                        <h5>Lâmpada 1</h5>
+                    </center>
+                </div>
+                <div class="card-footer bg-transparent border-dark">
+                    <div class="row">
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Alternate Text" />
+                        </div>
+
+                        <div class="icone-botao mx-auto">
+                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Alternate Text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->

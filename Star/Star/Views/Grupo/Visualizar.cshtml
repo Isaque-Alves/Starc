@@ -1,0 +1,99 @@
+﻿<div class="container">
+    <a asp-controller="Grupo" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
+
+    <br />
+
+    <center><h1>Componentes do Grupo:</h1></center>
+
+    <br />
+    <br />
+    <!--Div da Linha com 4 Cards-->
+
+    <!--
+        
+        Quando o componente estiver ativo no grupo o icone da lampada fica ligado, quando ele estiver desativado o icone da lampada fica desligado
+        
+    -->
+    <div class="row">
+        <!--Div do Card com as informações-->
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            @{/*if(STATUS == ligado){
+                                  * {
+                                  * <img src="~/imagens/LampadaLigada.svg">
+                                  * }else{
+                                  * <img src="~/imagens/LampadaDesligada.svg">
+                                  * }
+                              */}
+                            <img src="~/imagens/LampadaLigada.svg">
+                        </a>
+                        <h5>Lâmpada Sala 1</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            <img src="~/imagens/LampadaDesligada.svg">
+                        </a>
+                        <h5>Lâmpada Sala 2</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            <img src="~/imagens/LampadaLigada.svg">
+                        </a>
+                        <h5>Lâmpada Corredor</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            <img src="~/imagens/LampadaLigada.svg">
+                        </a>
+                        <h5>Lâmpada Cozinha 1</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-header bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            <img src="~/imagens/LampadaLigada.svg">
+                        </a>
+                        <h5>Lâmpada Cozinha 2</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 d-flex">
+            <div class="card bg-light border-dark flex-fill">
+                <div class="card-body bg-transparent border-dark flex-fill">
+                    <center>
+                        <a asp-controller="" asp-action="" asp-route-id="">
+                            <img src="~/imagens/LampadaLigada.svg">
+                        </a>
+                        <h5>Lâmpada Cozinha Fogão</h5>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+﻿<a asp-controller="Grupo" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
+
+<br />
+
+<center><h1>Grupo:</h1></center>
+
+<br />
+<br />
+<form>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Dias da Semana:</label>
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Segunda</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Terça</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Quarta</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Quinta</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Sexta</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Sabado</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="from-check-input" />
+                    <label class="form-check-label">Domingo</label>
+                </div>
+            </div><br />
+        </div>
+
+        <div class="col-sm-4">
+            <label>Componentes:</label>
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
+                    <label class="form-check-label">Lampada Sala 1</label>
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
+                    <label class="form-check-label">Lampada Sala 2</label>
+                    <img class="float-right" style="width:30px; height:30px" src="~/imagens/LampadaLigada.svg" />
+                </div>
+            </div><br />
+            <div class="card">
+                <div class="card-body" style="padding: 0.5rem">
+                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
+                    <label class="form-check-label">Lampada Corredor</label>
+                    <img class="float-right" style="width:30px; height:30px" src="~/imagens/LampadaLigada.svg" />
+                </div>
+            </div><br />
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Horário Inicial:</label>
+                <input type="time" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Horário Final:</label>
+                <input type="time" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <center><a asp-controler="PainelC" asp-action="Index" class="btn btn-success"><img style="width: 30px; height: 30px" src="~/imagens/iconSalvar.svg" alt="Alternate Text" /></a></center>
+    </div>
+</form>
