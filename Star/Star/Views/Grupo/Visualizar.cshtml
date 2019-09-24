@@ -22,12 +22,12 @@
                     <center>
                         <a asp-controller="" asp-action="" asp-route-id="">
                             @{/*if(STATUS == ligado){
-                                  * {
-                                  * <img src="~/imagens/LampadaLigada.svg">
-                                  * }else{
-                                  * <img src="~/imagens/LampadaDesligada.svg">
-                                  * }
-                              */}
+                                    * {
+                                    * <img src="~/imagens/LampadaLigada.svg">
+                                    * }else{
+                                    * <img src="~/imagens/LampadaDesligada.svg">
+                                    * }
+                                */}
                             <img src="~/imagens/LampadaLigada.svg">
                         </a>
                         <h5>Lâmpada Sala 1</h5>
@@ -35,65 +35,20 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-2 d-flex">
-            <div class="card bg-light border-dark flex-fill">
-                <div class="card-header bg-transparent border-dark flex-fill">
-                    <center>
-                        <a asp-controller="" asp-action="" asp-route-id="">
-                            <img src="~/imagens/LampadaDesligada.svg">
-                        </a>
-                        <h5>Lâmpada Sala 2</h5>
-                    </center>
+        @foreach (Componente c in ViewBag.Componente)
+        {
+            <div class="col-sm-2 d-flex">
+                <div class="card bg-light border-dark flex-fill">
+                    <div class="card-header bg-transparent border-dark flex-fill">
+                        <center>
+                            <a asp-controller="" asp-action="" asp-route-id="">
+                                <img src="~/imagens/LampadaDesligada.svg">
+                            </a>
+                            <h5>Lâmpada Sala 2</h5>
+                        </center>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-2 d-flex">
-            <div class="card bg-light border-dark flex-fill">
-                <div class="card-header bg-transparent border-dark flex-fill">
-                    <center>
-                        <a asp-controller="" asp-action="" asp-route-id="">
-                            <img src="~/imagens/LampadaLigada.svg">
-                        </a>
-                        <h5>Lâmpada Corredor</h5>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 d-flex">
-            <div class="card bg-light border-dark flex-fill">
-                <div class="card-header bg-transparent border-dark flex-fill">
-                    <center>
-                        <a asp-controller="" asp-action="" asp-route-id="">
-                            <img src="~/imagens/LampadaLigada.svg">
-                        </a>
-                        <h5>Lâmpada Cozinha 1</h5>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 d-flex">
-            <div class="card bg-light border-dark flex-fill">
-                <div class="card-header bg-transparent border-dark flex-fill">
-                    <center>
-                        <a asp-controller="" asp-action="" asp-route-id="">
-                            <img src="~/imagens/LampadaLigada.svg">
-                        </a>
-                        <h5>Lâmpada Cozinha 2</h5>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 d-flex">
-            <div class="card bg-light border-dark flex-fill">
-                <div class="card-body bg-transparent border-dark flex-fill">
-                    <center>
-                        <a asp-controller="" asp-action="" asp-route-id="">
-                            <img src="~/imagens/LampadaLigada.svg">
-                        </a>
-                        <h5>Lâmpada Cozinha Fogão</h5>
-                    </center>
-                </div>
-            </div>
-        </div>
+        }
     </div>
 </div>

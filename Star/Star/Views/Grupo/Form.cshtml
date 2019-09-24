@@ -1,4 +1,5 @@
-﻿<a asp-controller="Grupo" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
+﻿@model Star.Models.Grupo
+<a asp-controller="Grupo" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
 
 <br />
 
@@ -6,12 +7,16 @@
 
 <br />
 <br />
-<form>
+<form method="post">
     <div class="row">
         <div class="col-sm-12">
             <div class="form-group">
                 <label>Nome:</label>
-                <input class="form-control" />
+                <input asp-for="Nome" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Descrição:</label>
+                <input asp-for="Descricao" class="form-control" />
             </div>
         </div>
     </div>
@@ -69,29 +74,20 @@
                 </div>
             </div><br />
         </div>
-
         <div class="col-sm-4">
-            <label>Componentes:</label>
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
-                    <label class="form-check-label">Lampada Sala 1</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
-                    <label class="form-check-label">Lampada Sala 2</label>
-                    <img class="float-right" style="width:30px; height:30px" src="~/imagens/LampadaLigada.svg" />
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    <input type="checkbox" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
-                    <label class="form-check-label">Lampada Corredor</label>
-                    <img class="float-right" style="width:30px; height:30px" src="~/imagens/LampadaLigada.svg" />
-                </div>
-            </div><br />
+            @foreach (Componente c in ViewBag.Componente)
+            {
+
+                <label>Componentes:</label>
+
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        <input type="checkbox" name="Componentes[]" value="@c.Id" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
+                        <label class="form-check-label">@c.Nome</label>
+                    </div>
+                </div><br />
+
+            }
         </div>
 
         <div class="col-sm-4">
@@ -108,6 +104,6 @@
     </div>
 
     <div class="form-group">
-        <center><a asp-controler="PainelC" asp-action="Index" class="btn btn-success"><img style="width: 30px; height: 30px" src="~/imagens/iconSalvar.svg" alt="Alternate Text" /></a></center>
+        <center><input type="submit" value="Salvar"/></center>
     </div>
 </form>

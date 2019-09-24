@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,9 +16,13 @@ namespace Star.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime HorarioInicial { get; set; }
 
+        [NotMapped]
+        public int[] Componentes { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime HorarioFinal { get; set; }
+        public String Descricao { get; set; }
         public bool Segunda { get; set; }
         public bool Terca { get; set; }
         public bool Quarta { get; set; }

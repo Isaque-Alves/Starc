@@ -33,118 +33,63 @@
 
     </div>
     <br />
-
-    <div class="card">
-        <div class="card-header">
-            <h3>Liga/Desliga Luz De Fora</h3>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-5">
-                    <h5>Descrição: </h5>
-                    <p class="card-text">Controla as lampadas do lado de fora da casa, para que toda noite elas fiquem acessas</p>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Dias Da Semana: </h5>
-                    <p class="card-text">Segunda, Terça, Quarta, Quinta, Sexta, Sabado, Domingo</p>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Horario Inicial: </h5>
-                    <p class="card-text">19:00</p>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Horario Final: </h5>
-                    <p class="card-text">06:00</p>
-                </div>
+    @foreach (Grupo g in ViewBag.Grupo)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>@g.Nome</h3>
             </div>
-
-
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-sm-5"></div>
-                <div class="col-sm-2">
-                    <div class="row">
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
-                            </a>
-
-                        </div>
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Editar" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
-                            </a>
-
-                        </div>
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
-                            </a>
-
-                        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h5>Descrição: </h5>
+                        <p class="card-text">@g.Descricao</p>
                     </div>
-
-                </div>
-                <div class="col-sm-5"></div>
-            </div>
-        </div>
-    </div><br/>
-    <div class="card">
-        <div class="card-header">
-            <h3>Liga/Desliga Luz Do Corredor</h3>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-5">
-                    <h5>Descrição: </h5>
-                    <p class="card-text">Controla as lampadas do corredor</p>
-                </div>
-                <div class="col-sm-3">
-                    <h5>Dias Da Semana: </h5>
-                    <p class="card-text">Segunda, Terça, Quarta, Quinta, Sexta, Sabado, Domingo</p>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Horario Inicial: </h5>
-                    <p class="card-text">19:00</p>
-                </div>
-                <div class="col-sm-2">
-                    <h5>Horario Final: </h5>
-                    <p class="card-text">00:00</p>
-                </div>
-            </div>
-
-
-        </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-sm-5"></div>
-                <div class="col-sm-2">
-                    <div class="row">
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
-                            </a>
-
-                        </div>
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Editar" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
-                            </a>
-
-                        </div>
-                        <div class="icone-botao mx-auto">
-                            <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="">
-                                <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
-                            </a>
-
-                        </div>
+                    <div class="col-sm-3">
+                        <h5>Dias Da Semana: </h5>
+                        <p class="card-text">@ViewData["Grupo"]</p>
                     </div>
-
+                    <div class="col-sm-2">
+                        <h5>Horario Inicial: </h5>
+                        <p class="card-text">@g.HorarioInicial</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <h5>Horario Final: </h5>
+                        <p class="card-text">@g.HorarioFinal</p>
+                    </div>
                 </div>
-                <div class="col-sm-5"></div>
-            </div>
-        </div>
-    </div>
 
+
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <div class="icone-botao mx-auto">
+                                <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="">
+                                    <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
+                                </a>
+
+                            </div>
+                            <div class="icone-botao mx-auto">
+                                <a asp-controller="Grupo" asp-action="Editar" asp-route-id="">
+                                    <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
+                                </a>
+
+                            </div>
+                            <div class="icone-botao mx-auto">
+                                <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="">
+                                    <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-5"></div>
+                </div>
+            </div>
+        </div><br />
+    }
 </div>

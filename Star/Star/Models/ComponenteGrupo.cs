@@ -12,7 +12,7 @@ namespace Star.Models
         
         public int GrupoId { get; set; }
         
-        public int TipoComponenteId { get; set; }
+        public int ComponenteId { get; set; }
         public bool Ativo { get; set; }
 
         public Componente Componente { get; set; }
