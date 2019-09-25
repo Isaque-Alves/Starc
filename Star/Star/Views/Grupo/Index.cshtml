@@ -51,11 +51,11 @@
                     </div>
                     <div class="col-sm-2">
                         <h5>Horario Inicial: </h5>
-                        <p class="card-text">@g.HorarioInicial</p>
+                        <p class="card-text">@g.HorarioInicial.ToString("t")</p>
                     </div>
                     <div class="col-sm-2">
                         <h5>Horario Final: </h5>
-                        <p class="card-text">@g.HorarioFinal</p>
+                        <p class="card-text">@g.HorarioFinal.ToString("t")</p>
                     </div>
                 </div>
 
@@ -67,19 +67,19 @@
                     <div class="col-sm-2">
                         <div class="row">
                             <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="">
+                                <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="@g.Id">
                                     <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
                                 </a>
 
                             </div>
                             <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Editar" asp-route-id="">
+                                <a asp-controller="Grupo" asp-action="Editar" asp-route-id="@g.Id">
                                     <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
                                 </a>
 
                             </div>
                             <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="">
+                                <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="@g.Id">
                                     <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
                                 </a>
 
