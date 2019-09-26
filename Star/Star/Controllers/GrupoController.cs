@@ -31,33 +31,7 @@ namespace Star.Controllers
         {
             if (ModelState.IsValid)
             {
-                foreach(String dia in Grupo.DiasSemana)
-                {
-                    switch (dia)
-                    {
-                        case "Segunda":
-                            Grupo.Segunda = true;
-                            break;
-                        case "Terca":
-                            Grupo.Terca = true;
-                            break;
-                        case "Quarta":
-                            Grupo.Quarta = true;
-                            break;
-                        case "Quinta":
-                            Grupo.Quinta = true;
-                            break;
-                        case "Sexta":
-                            Grupo.Sexta = true;
-                            break;
-                        case "Sabado":
-                            Grupo.Sabado = true;
-                            break;
-                        case "Domingo":
-                            Grupo.Domingo = true;
-                            break;
-                    }
-                }
+                
                 Ctx.Grupos.Add(Grupo);
                 Ctx.SaveChanges();
                 foreach (int idComponente in Grupo.Componentes)

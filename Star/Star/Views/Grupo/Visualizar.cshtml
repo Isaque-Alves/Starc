@@ -19,15 +19,22 @@
 
         @foreach (ComponenteGrupo cg in ViewBag.Componentes)
         {
-            
+
             <div class="col-sm-2 d-flex">
                 <div class="card bg-light border-dark flex-fill">
                     <div class="card-header bg-transparent border-dark flex-fill">
                         <center>
-                            
 
+                            @if (cg.Componente.Status == true)
+                            {
                                 <img src="~/imagens/LampadaLigada.svg">
-                            
+                            }
+                            else
+                            {
+                                <img src="~/imagens/LampadaDesligada.svg">
+                            }
+
+
                             <h5>@cg.Componente.Nome</h5>
                         </center>
                     </div>
