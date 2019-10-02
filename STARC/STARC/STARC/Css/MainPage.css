@@ -1,0 +1,19 @@
+﻿StackLayout {
+    margin-right: 20;
+    margin-left: 20;
+    margin-bottom: 100;
+}
+
+Button{
+    margin-top: 10;
+    background-color: black;
+    color: white;
+
+    border-radius: 100;
+    width: 200;
+}
+
+label{
+    color: black;
+    font-size: 16;
+}

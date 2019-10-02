@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STARC.PaginaPrincipal"
+             Title="Lampadas">
+    <ContentPage.Resources>
+        <StyleSheet Source="Css/PaginaPrincipal.css"></StyleSheet>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+
+
+            <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Clicked_ImageAsync"/>
+            <Label Text="Lampada 1" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1"/>
+
+            <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" HeightRequest="75" WidthRequest="75" Clicked="Clicked_ImageAsync" />
+            <Label Text="Lampada 2" HorizontalOptions="Center" Grid.Column="1" Grid.Row="1"/>
+
+            <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2" HeightRequest="60" WidthRequest="60" Clicked="Clicked_ImageAsync" x:Name="Grupo"/>
+            <Label Text="Lampada 3" HorizontalOptions="Center" Grid.Column="0" Grid.Row="3"/>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

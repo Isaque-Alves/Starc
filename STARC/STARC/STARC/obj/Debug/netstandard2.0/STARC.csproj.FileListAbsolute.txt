@@ -1,0 +1,17 @@
+C:\Users\Breno\source\repos\STARC\STARC\STARC\bin\Debug\netstandard2.0\STARC.deps.json
+C:\Users\Breno\source\repos\STARC\STARC\STARC\bin\Debug\netstandard2.0\STARC.dll
+C:\Users\Breno\source\repos\STARC\STARC\STARC\bin\Debug\netstandard2.0\ref\STARC.dll
+C:\Users\Breno\source\repos\STARC\STARC\STARC\bin\Debug\netstandard2.0\STARC.pdb
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.csprojAssemblyReference.cache
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.csproj.CoreCompileInputs.cache
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.AssemblyInfoInputs.cache
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.AssemblyInfo.cs
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.dll
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\ref\STARC.dll
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\STARC.pdb
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\PaginaPrincipal.xaml.g.cs
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\Css\PaginaPrincipal.css.g.cs
+C:\Users\Breno\source\repos\STARC\STARC\STARC\obj\Debug\netstandard2.0\Css\MainPage.css.g.cs
