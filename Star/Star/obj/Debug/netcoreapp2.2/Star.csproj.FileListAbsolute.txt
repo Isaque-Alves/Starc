@@ -124,7 +124,6 @@ C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Index.g.cshtml.cs
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Grupo\Visualizar.g.cshtml.cs
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
@@ -139,3 +138,4 @@ C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.p
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.csproj.CopyComplete
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.Properties.Resources.resources
 C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.csproj.GenerateResource.cache
+C:\Users\0033897\Documents\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Login\Login.g.cshtml.cs

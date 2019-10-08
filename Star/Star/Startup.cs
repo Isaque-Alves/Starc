@@ -35,7 +35,13 @@ namespace Star
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<AppContext>(o => o.UseMySql("Server=starbd.mysql.database.azure.com;Port=3306;Database=star;Uid=rute@starbd;Pwd=starPI123;SslMode=Preferred;"));
+            services.AddDbContext<AppContext>(o => o.UseMySql("Server=localhost;Database=star;Uid=root;Pwd=ifmgbd;"));
+            services.AddSession(options => {
+
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+                options.Cookie.HttpOnly = true;
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +61,7 @@ namespace Star
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

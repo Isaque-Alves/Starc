@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Star.Filters;
 using Star.Models;
 
 namespace Star.Controllers
 {
+    [LoginFilter(SomenteAdmin = true)]
     public class GrupoController : Controller
     {
         private AppContext Ctx;
