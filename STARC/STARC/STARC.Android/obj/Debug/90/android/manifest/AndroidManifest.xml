@@ -5,7 +5,8 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <application android:label="STARC.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
+  <uses-permission android:name="android.permission.VIBRATE" />
+  <application android:label="STARC" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
     <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="STARC" android:theme="@style/MainTheme" android:name="md57219c186354f3c792a5661e4755853e6.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
