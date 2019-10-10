@@ -35,6 +35,7 @@ namespace Star
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.AddDbContext<AppContext>(o => o.UseMySql("Server=localhost;Database=star;Uid=root;Pwd=ifmgbd;"));
             services.AddSession(options => {
 
@@ -42,6 +43,9 @@ namespace Star
                 options.Cookie.HttpOnly = true;
 
             });
+
+            services.AddDbContext<AppContext>(o => o.UseMySql("Server=remotemysql.com;Port=3306;Database=k976bDekh3;Uid=k976bDekh3;Pwd=XfsvduEaoj;SslMode=Preferred;"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

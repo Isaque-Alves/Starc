@@ -1005,24 +1005,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Breno\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\0033966\\.nuget\\packages\\": {},
+    "C:\\ProgramData\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Breno\\source\\repos\\STARC\\STARC\\STARC.iOS\\STARC.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC.iOS\\STARC.iOS.csproj",
       "projectName": "STARC.iOS",
-      "projectPath": "C:\\Users\\Breno\\source\\repos\\STARC\\STARC\\STARC.iOS\\STARC.iOS.csproj",
-      "packagesPath": "C:\\Users\\Breno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Breno\\source\\repos\\STARC\\STARC\\STARC.iOS\\obj\\",
+      "projectPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC.iOS\\STARC.iOS.csproj",
+      "packagesPath": "C:\\Users\\0033966\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\ProgramData\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Breno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0033966\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1036,8 +1036,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\Breno\\source\\repos\\STARC\\STARC\\STARC\\STARC.csproj": {
-              "projectPath": "C:\\Users\\Breno\\source\\repos\\STARC\\STARC\\STARC\\STARC.csproj"
+            "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj": {
+              "projectPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj"
             }
           }
         }

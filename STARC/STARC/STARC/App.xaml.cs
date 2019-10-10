@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;   
 
 namespace STARC
 {
@@ -15,17 +16,33 @@ namespace STARC
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            try
+            {
+                // Use default vibration length
+                Vibration.Vibrate();
+
+                // Or use specified time
+                var duration = TimeSpan.FromSeconds(10);
+                Vibration.Vibrate(duration);
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                // Feature not supported on device
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
         }
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
+            Vibration.Cancel();
         }
     }
 }

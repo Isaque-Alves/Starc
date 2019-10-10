@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\Star.csproj": {}
+    "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\Star\\Star\\Star.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\Star.csproj": {
+    "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\Star\\Star\\Star.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\Star.csproj",
+        "projectUniqueName": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\Star\\Star\\Star.csproj",
         "projectName": "Star",
-        "projectPath": "C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\Star.csproj",
-        "packagesPath": "C:\\Users\\Isaque\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\obj\\",
+        "projectPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\Star\\Star\\Star.csproj",
+        "packagesPath": "C:\\Users\\0033966\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\Star\\Star\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\ProgramData\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Isaque\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\0033966\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
