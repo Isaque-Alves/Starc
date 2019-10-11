@@ -1,27 +1,84 @@
 ﻿@model Star.Models.Usuario
 
 
-<h2>Login</h2>
-
-@if(ViewBag.Mensagem != null)
+@if (ViewBag.Mensagem != null)
 {
-    <div class="alert alert-danger">@ViewBag.Mensagem</div>
+    <div class='modal fade' id='ModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+        <div class='modal-dialog modal-dialog-centered' role='document'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title' id='exampleModalLongTitle'>Login</h5>
+                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                <div class='modal-body'>
+                    Login ou senha incorretos!
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function abre() {
+            $('#ModalCenter').modal();
+        };
+    </script>
+
 }
 
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="~/images/img-01.png" alt="IMG">
+            </div>
 
+            <form class="login100-form validate-form" method="post">
+                <span class="login100-form-title">
+                    Login
+                </span>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
+                <div class="wrap-input100 validate-input " data-validate="Digite um email valido: exemplo@exemplo.com">
+                    <input asp-for="Email" class="input100 " type="email" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Digite uma senha válida">
+                      <input asp-for="Senha" class="input100" type="password" placeholder="Senha" />
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <input type="submit" class="login100-form-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                </div>
+
+                <div class="text-center p-t-12">
+                    <span class="txt1">
+                        Esqueceu o nome do
+                    </span>
+                    <a class="txt2" href="#">
+                        Usuário / Senha?
+                    </a>
+                </div>
+
+                <div class="text-center p-t-136">
+                    <a asp-controller="Cadastro" asp-action="Novo" class="txt2" href="">
+                        Criar uma conta
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="Senha"></label>
-        <input asp-for="Senha" class="form-control" type="password" />
-    </div>
 
-    <div class="form-group">
-        <input type="submit" value="ok" class="btn btn-primary" />
-    </div>
-</form>
