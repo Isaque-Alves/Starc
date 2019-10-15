@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="StarPI" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Isaque\\Desktop\\PI-2019\\Views\\Star\\Star\\obj\\Release\\netcoreapp2\.2\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="starc" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\Star\\Star\\obj\\Release\\netcoreapp2\.2\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

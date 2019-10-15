@@ -17,7 +17,7 @@
         <Label Text="Senha:"/>
         <Entry x:Name="Senha" ClassId="Campo" IsPassword="True"/>
 
-        <Button Text="Entrar" Clicked="Cliked_Login" ClassId="Btn"/>
+        <Button Text="Entrar" Clicked="Cliked_Login" ClassId="Btn" x:Name="BtnEnter"/>
 
     </StackLayout>
 

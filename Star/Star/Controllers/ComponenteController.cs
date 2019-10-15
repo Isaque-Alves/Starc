@@ -140,5 +140,16 @@ namespace Star.Controllers
 
             return "rec" + (componente.Status ? 1 : 0);
         }
+
+        public JsonResult Lista()
+        {
+            //int cadastroId = Ctx.Usuarios.Find(HttpContext.Session.GetInt32("Id") ?? default(int)).CadastroId;
+            int cadastroId = Ctx.Usuarios.Find(2).CadastroId;
+            IEnumerable<Componente> c = Ctx.Componentes.Where(a => a.CadastroId == cadastroId);
+
+
+
+            return Json(c);
+        }
     }
 }

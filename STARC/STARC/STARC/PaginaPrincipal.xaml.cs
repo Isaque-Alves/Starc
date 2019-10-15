@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using STARC.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +15,44 @@ namespace STARC
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaPrincipal : ContentPage
     {
+
         public PaginaPrincipal()
         {
+            BuscaComponente();
             InitializeComponent();
+        }
+
+        async void BuscaComponente()
+        {
+            var http = new HttpClient();
+
+            try
+            {
+                Database database = new Database();
+
+                HttpResponseMessage result = await http.GetAsync("http://starc.azurewebsites.net/Componente/Lista"); /* http://viacep.com.br/ws/01001000/json/?usuario=alskdjflakjsdf&senha=ou34o2iu34 */
+
+                String json = await result.Content.ReadAsStringAsync();
+                List<Componente> componentes = JsonConvert.DeserializeObject<List<Componente>>(json);
+                foreach(Componente c in componentes)
+                {
+                    /*Componente teste = new Componente();
+                    teste.Nome = c.Nome;
+                    teste.Status = c.Status;*/
+
+                    database.Conexao().Insert(c);
+                }
+
+                //database.Conexao().Insert(componentes[0]);
+
+                this.FindByName<ListView>("ListContatos").ItemsSource = database.Conexao().Table<Componente>().ToList();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            
         }
 
         async void Clicked_ImageAsync(object sender, EventArgs a)

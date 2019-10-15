@@ -10,6 +10,7 @@
         <StyleSheet Source="Css/PaginaPrincipal.css"></StyleSheet>
     </ContentPage.Resources>
     <ContentPage.Content>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -19,7 +20,7 @@
             </Grid.RowDefinitions>
 
 
-
+            <!--
             <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Clicked_ImageAsync"/>
             <Label Text="Lampada 1" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1"/>
 
@@ -28,7 +29,21 @@
 
             <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2" HeightRequest="60" WidthRequest="60" Clicked="Clicked_ImageAsync" x:Name="Grupo"/>
             <Label Text="Lampada 3" HorizontalOptions="Center" Grid.Column="0" Grid.Row="3"/>
+            -->
+            
 
+            <ListView x:Name="ListContatos">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Nome}" />
+                                <Label Text="{Binding Status}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
         </Grid>
     </ContentPage.Content>

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj": {}
+    "C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj": {
+    "C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj",
+        "projectUniqueName": "C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj",
         "projectName": "STARC",
-        "projectPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj",
-        "packagesPath": "C:\\Users\\0033966\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\0033966\\Documents\\GitHub\\Starc\\STARC\\STARC\\STARC\\obj\\",
+        "projectPath": "C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\STARC\\STARC\\STARC\\STARC.csproj",
+        "packagesPath": "C:\\Users\\Breno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Breno\\OneDrive\\Documentos\\GitHub\\Starc\\STARC\\STARC\\STARC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\ProgramData\\Xamarin\\NuGet\\",
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\0033966\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Breno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -49,6 +49,10 @@
               "version": "[2.0.3, )",
               "autoReferenced": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.1.0, )"
@@ -56,6 +60,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[4.0.0.425677, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.6.292, )"
             }
           },
           "imports": [

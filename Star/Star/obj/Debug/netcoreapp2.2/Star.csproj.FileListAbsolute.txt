@@ -220,3 +220,4 @@ C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.dll
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.pdb
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Star.csproj.CopyComplete
+C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\Star\Star\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
