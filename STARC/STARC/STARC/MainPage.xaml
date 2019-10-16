@@ -4,12 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="STARC.MainPage">
+             x:Class="STARC.MainPage" x:Name="ContentPage">
     <ContentPage.Resources>
         <StyleSheet Source="Css/MainPage.css"></StyleSheet>
     </ContentPage.Resources>
 
     <StackLayout VerticalOptions="Center">
+
         <Image Source="Starc.png" StyleId="Logo"/>
 
         <Label Text="Usuario:"/>

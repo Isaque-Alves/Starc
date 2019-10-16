@@ -1,12 +1,16 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;   
+using Xamarin.Essentials;
+using System.Net.Http;
 
 namespace STARC
 {
     public partial class App : Application
     {
+
+        public static HttpClient http = new HttpClient();
+
         public App()
         {
             InitializeComponent();
@@ -24,11 +28,11 @@ namespace STARC
             try
             {
                 // Use default vibration length
-                Vibration.Vibrate();
+                //Vibration.Vibrate();
 
                 // Or use specified time
-                var duration = TimeSpan.FromSeconds(10);
-                Vibration.Vibrate(duration);
+                /*var duration = TimeSpan.FromSeconds(10);
+                Vibration.Vibrate(duration);*/
             }
             catch (FeatureNotSupportedException ex)
             {

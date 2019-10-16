@@ -24,35 +24,40 @@ namespace STARC
 
         async void BuscaComponente()
         {
-            var http = new HttpClient();
 
+            
             try
             {
                 Database database = new Database();
 
-                HttpResponseMessage result = await http.GetAsync("http://starc.azurewebsites.net/Componente/Lista"); /* http://viacep.com.br/ws/01001000/json/?usuario=alskdjflakjsdf&senha=ou34o2iu34 */
+                HttpResponseMessage result = await App.http.GetAsync("http://starc.azurewebsites.net/Componente/Lista"); /* http://viacep.com.br/ws/01001000/json/?usuario=alskdjflakjsdf&senha=ou34o2iu34 */
 
                 String json = await result.Content.ReadAsStringAsync();
                 List<Componente> componentes = JsonConvert.DeserializeObject<List<Componente>>(json);
-                foreach(Componente c in componentes)
+                if(componentes.Count != 0)
                 {
-                    /*Componente teste = new Componente();
-                    teste.Nome = c.Nome;
-                    teste.Status = c.Status;*/
+                    foreach(Componente c in componentes)
+                    {
+                        /*Componente teste = new Componente();
+                        teste.Nome = c.Nome;
+                        teste.Status = c.Status;*/
 
-                    database.Conexao().Insert(c);
+                        database.Conexao().Insert(c);
+                    }
+
+                    this.FindByName<ListView>("ListContatos").ItemsSource = database.Conexao().Table<Componente>().ToList();
                 }
-
-                //database.Conexao().Insert(componentes[0]);
-
-                this.FindByName<ListView>("ListContatos").ItemsSource = database.Conexao().Table<Componente>().ToList();
+                else
+                {
+                    await DisplayAlert("Mensagem", "Você não possui nenhum componente cadastrado", "Fechar");
+                }
+                
             }
             catch (Exception e)
             {
-
+                await DisplayAlert("ERRO", e.Message, "Cancelar");
             }
 
-            
         }
 
         async void SwitchCell_Clicked(object sender, EventArgs a)
@@ -60,35 +65,15 @@ namespace STARC
             SwitchCell s = (sender as SwitchCell);
 
             string id = s.ClassId;
-
-            var http = new HttpClient();
             try
             {
                 string url = "http://starc.azurewebsites.net/Componente/AlteraStatusMobile/" + id;
-                HttpResponseMessage result = await http.GetAsync(url);
+                HttpResponseMessage result = await App.http.GetAsync(url);
             }catch(Exception e)
             {
                 await DisplayAlert("Erro", "Não foi possivel conectar ao servidor para alterar o status da sua lâmpada", "Cancelar");
             }
         }
 
-        async void Clicked_ImageAsync(object sender, EventArgs a)
-        {
-            Button b = (sender as Button);
-            b.Effects.Clear();
-
-            if(b.ImageSource.ToString() == "File: LampadaLigada.png")
-            {
-                b.ImageSource = "LampadaDesligada.png";
-            }else if (b.ImageSource.ToString() == "File: LampadaDesligada.png")
-            {
-                b.ImageSource = "LampadaLigada.png";
-            }
-
-            bool desabilitar = await DisplayAlert("Conflito", "O componente atual está em um grupo, deseja desativa-lo do grupo?", "Desabilitar", "Cancelar");
-
-               
-             
-        }
     }
 }

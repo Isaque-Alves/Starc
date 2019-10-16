@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="STARC.PaginaPrincipal"
-             Title="Lampadas">
+             Title="Lampadas" x:Name="ContentPage">
     <ContentPage.Resources>
         <StyleSheet Source="Css/PaginaPrincipal.css"></StyleSheet>
     </ContentPage.Resources>
@@ -46,7 +46,7 @@
             </ListView>-->
 
         <StackLayout>
-            <ListView x:Name="ListContatos" Header="Lampadas" SelectionMode="None" StyleId="listview">
+            <ListView x:Name="ListContatos" SelectionMode="None" StyleId="listview">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <SwitchCell ClassId="{Binding Id}" On="{Binding Status}" Text="{Binding Nome}" OnChanged="SwitchCell_Clicked"></SwitchCell>

@@ -22,7 +22,9 @@ namespace STARC.Model
             if (!TabelasCriadas)
             {
                 cnx.DropTable<Componente>();
+                cnx.DropTable<Usuario>();
                 cnx.CreateTable<Componente>();
+                cnx.CreateTable<Usuario>();
                 TabelasCriadas = true;
             }
 

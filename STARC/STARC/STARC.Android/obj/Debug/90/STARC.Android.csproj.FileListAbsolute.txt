@@ -842,8 +842,6 @@ C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\De
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\mipmap-xxhdpi\launcher_foreground.png
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\mipmap-xxxhdpi\icon.png
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\mipmap-xxxhdpi\launcher_foreground.png
-C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\drawable\lampadaligada.png
-C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\drawable\lampadadesligada.png
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\res\drawable\starc.png
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\R.cs.flag
 C:\Users\Breno\OneDrive\Documentos\GitHub\Starc\STARC\STARC\STARC.Android\obj\Debug\90\R.txt

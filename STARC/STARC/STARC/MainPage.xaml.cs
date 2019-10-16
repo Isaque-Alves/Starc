@@ -14,10 +14,11 @@ namespace STARC
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage, INotifyPropertyChanged
     {
         public Entry User;
         private Entry Password;
+
         public MainPage()
         { 
             InitializeComponent();
@@ -35,19 +36,38 @@ namespace STARC
 
             User = this.FindByName<Entry>("Usuario");
             Password = this.FindByName<Entry>("Senha");
+            ContentPage c = this.FindByName<ContentPage>("ContentPage");
+
+
         }
 
         async void Cliked_Login(object sender, EventArgs e)
         {
-            //if(User.Text == "adm" && Password.Text == "123")
-            //{
+            this.FindByName<ContentPage>("ContentPage").BackgroundColor = Color.FromHex("646464");
+            this.FindByName<Button>("BtnEnter").TextColor = Color.FromHex("646464");
+
+            string url = "http://starc.azurewebsites.net/Usuario/LoginMobile?email="+User.Text+"&senha="+Password.Text;
+            HttpResponseMessage result = await App.http.GetAsync(url);
+            string resposta = await result.Content.ReadAsStringAsync();
+            if(resposta == "OK")
+            {
+                Database database = new Database();
+
+                Usuario u = new Usuario();
+                u.Nome = User.Text;
+                u.Senha = Password.Text;
+                database.Conexao().DeleteAll<Usuario>();
+                database.Conexao().Insert(u);
+                
                 await Navigation.PushAsync(new PaginaPrincipal(), true);
-            /*}
+            }
             else
             {
-                await Navigation.PushAsync(new ErrorPage(), true);
-            }*/
-            
+                await DisplayAlert("ERRO", "Usuario e/ou senha não encontrados!", "Cancelar");
+            }
+
+            this.FindByName<ContentPage>("ContentPage").BackgroundColor = Color.FromHex("FFFFFF");
+            this.FindByName<Button>("BtnEnter").TextColor = Color.FromHex("FFFFFF");
         }
     }
 }

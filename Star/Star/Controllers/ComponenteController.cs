@@ -127,9 +127,10 @@ namespace Star.Controllers
                 return RedirectToAction("index", ViewBag.Dados);
             }
         }
+        [LoginFilter]
         public String AlteraStatusMobile(int id)
         {
-            Componente componente = Ctx.Componentes.Find(id);
+            Componente componente = Ctx.Componentes.Where(a => a.Id == id && a.CadastroId == HttpContext.Session.GetInt32("CadastroId")).FirstOrDefault();
 
 
             if (componente.Status == false)
@@ -159,13 +160,10 @@ namespace Star.Controllers
             return "rec" + (componente.Status ? 1 : 0);
         }
 
+        [LoginFilter]
         public JsonResult Lista()
         {
-            //int cadastroId = Ctx.Usuarios.Find(HttpContext.Session.GetInt32("Id") ?? default(int)).CadastroId;
-            int cadastroId = Ctx.Usuarios.Find(2).CadastroId;
-            IEnumerable<Componente> c = Ctx.Componentes.Where(a => a.CadastroId == cadastroId);
-
-
+            IEnumerable<Componente> c = Ctx.Componentes.Where(a => a.CadastroId == HttpContext.Session.GetInt32("CadastroId"));
 
             return Json(c);
         }

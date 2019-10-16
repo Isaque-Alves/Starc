@@ -55,6 +55,7 @@ namespace Star.Controllers
             if(usuario != null)
             {
                 HttpContext.Session.SetInt32("Id", usuario.Id);
+                HttpContext.Session.SetInt32("CadastroId", usuario.CadastroId);
                 HttpContext.Session.SetString("Nome", usuario.Nome);
 
                 if(usuario.TipoUsuarioId == 1)
@@ -69,6 +70,36 @@ namespace Star.Controllers
 
             return View("Login", usuario);
         }
+
+        [HttpGet]
+        public string LoginMobile(string email, string senha)
+        {
+            Usuario usuario = _Ctx.Usuarios.Where(a => a.Email == email && a.Senha == senha).FirstOrDefault();
+
+            if (usuario != null)
+            {
+                HttpContext.Session.SetInt32("Id", usuario.Id);
+                HttpContext.Session.SetInt32("CadastroId", usuario.CadastroId);
+                HttpContext.Session.SetString("Nome", usuario.Nome);
+
+                if (usuario.TipoUsuarioId == 1)
+                {
+                    HttpContext.Session.SetInt32("Adm", 1);
+                }
+                else
+                {
+                    HttpContext.Session.SetInt32("Adm", 0);
+                }
+                return "OK";
+            }
+            else
+            {
+                return "Error";
+            }
+
+            
+        }
+
 
         public IActionResult Logout()
         {
