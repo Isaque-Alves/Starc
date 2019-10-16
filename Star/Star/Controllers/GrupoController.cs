@@ -10,7 +10,6 @@ using Star.Models;
 
 namespace Star.Controllers
 {
-    [LoginFilter(SomenteAdmin = true)]
     public class GrupoController : Controller
     {
         private AppContext Ctx;

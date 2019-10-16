@@ -10,8 +10,8 @@
         <StyleSheet Source="Css/PaginaPrincipal.css"></StyleSheet>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
-        <Grid>
+
+        <!--<Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="100"/>
@@ -20,7 +20,7 @@
             </Grid.RowDefinitions>
 
 
-            <!--
+            
             <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Clicked_ImageAsync"/>
             <Label Text="Lampada 1" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1"/>
 
@@ -29,7 +29,7 @@
 
             <Button class="ButtonLampada" ImageSource="LampadaLigada.png" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2" HeightRequest="60" WidthRequest="60" Clicked="Clicked_ImageAsync" x:Name="Grupo"/>
             <Label Text="Lampada 3" HorizontalOptions="Center" Grid.Column="0" Grid.Row="3"/>
-            -->
+            
             
 
             <ListView x:Name="ListContatos">
@@ -43,8 +43,21 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+            </ListView>-->
+
+        <StackLayout>
+            <ListView x:Name="ListContatos" Header="Lampadas" SelectionMode="None" StyleId="listview">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <SwitchCell ClassId="{Binding Id}" On="{Binding Status}" Text="{Binding Nome}" OnChanged="SwitchCell_Clicked"></SwitchCell>
+                        <!--<StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Nome}"/>
+                            <Switch IsEnabled="{Binding Status}" HorizontalOptions="End"/>
+                        </StackLayout>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
 
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

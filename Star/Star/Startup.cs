@@ -29,11 +29,12 @@ namespace Star
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
 
+            services.AddDbContext<AppContext>(o => o.UseMySql("Server=remotemysql.com;Port=3306;Database=k976bDekh3;Uid=k976bDekh3;Pwd=XfsvduEaoj;"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //services.AddDbContext<AppContext>(o => o.UseMySql("Server=localhost;Database=star;Uid=root;Pwd=ifmgbd;"));
@@ -44,7 +45,6 @@ namespace Star
 
             });
 
-            services.AddDbContext<AppContext>(o => o.UseMySql("Server=remotemysql.com;Port=3306;Database=k976bDekh3;Uid=k976bDekh3;Pwd=XfsvduEaoj;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +62,7 @@ namespace Star
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
             app.UseCookiePolicy();

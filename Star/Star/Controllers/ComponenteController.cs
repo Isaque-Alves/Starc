@@ -20,7 +20,7 @@ namespace Star.Controllers
             Ctx = appContext;
         }
 
-        [LoginFilter(SomenteAdmin = true)]
+        [LoginFilter]
         public IActionResult Index()
         {
             ViewBag.Dados = Ctx.Componentes.Include(c => c.Cadastro).Include(tp => tp.TipoComponente).OrderBy(c => c.Nome);
@@ -29,7 +29,7 @@ namespace Star.Controllers
             return View();
         }
 
-        [LoginFilter(SomenteAdmin = true)]
+        [LoginFilter]
         public IActionResult Novo()
         {
             ViewBag.Cadastro = Ctx.Cadastros.OrderBy(c => c.Nome).Select(ca => new SelectListItem
@@ -49,8 +49,8 @@ namespace Star.Controllers
             return View("Form");
         }
 
+        [LoginFilter]
         [HttpPost]
-        [LoginFilter(SomenteAdmin = true)]
         public IActionResult Novo(Componente componente)
         {
             Ctx.Componentes.Add(componente);
@@ -59,7 +59,7 @@ namespace Star.Controllers
             return RedirectToAction("index");
         }
 
-        [LoginFilter(SomenteAdmin = true)]
+        [LoginFilter(Adm = true)]
         public IActionResult Editar(int id)
         {
             Componente componente = Ctx.Componentes.Find(id);
@@ -84,8 +84,8 @@ namespace Star.Controllers
             return View("Form", componente);
         }
 
+        [LoginFilter(Adm = true)]
         [HttpPost]
-        [LoginFilter(SomenteAdmin = true)]
         public IActionResult Editar(Componente componente)
         {
             Ctx.Componentes.Update(componente);
@@ -94,7 +94,7 @@ namespace Star.Controllers
             return RedirectToAction("index");
         }
 
-        [LoginFilter(SomenteAdmin = true)]
+        [LoginFilter(Adm = true)]
         public IActionResult Excluir(int id)
         {
             Componente componente = Ctx.Componentes.Find(id);
@@ -108,7 +108,6 @@ namespace Star.Controllers
             return RedirectToAction("index");
         }
 
-        [LoginFilter(SomenteAdmin = true)]
         public IActionResult AlteraStatus(int id)
         {
             Componente componente = Ctx.Componentes.Find(id);
@@ -128,9 +127,28 @@ namespace Star.Controllers
                 return RedirectToAction("index", ViewBag.Dados);
             }
         }
+        public String AlteraStatusMobile(int id)
+        {
+            Componente componente = Ctx.Componentes.Find(id);
+
+
+            if (componente.Status == false)
+            {
+                componente.Status = true;
+                Ctx.Componentes.Update(componente);
+                Ctx.SaveChanges();
+                return "True";
+            }
+            else
+            {
+                componente.Status = false;
+                Ctx.Componentes.Update(componente);
+                Ctx.SaveChanges();
+                return "False";
+            }
+        }
 
         [HttpGet]
-        [LoginFilter(SomenteAdmin = true)]
         public String Consulta (int id)
         {
             Componente componente = Ctx.Componentes.Find(id);

@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Star.Models.Usuario
+
+@if (Context.Session.GetInt32("Id") == null)
+{
+<label>Não tem!</label>
+}
+else
+{
+<label>@Context.Session.GetInt32("Id")</label>
+}
+
+@if (Context.Session.GetInt32("qwe") == null)
+{
+<label>Não apareceu!</label>
+}
+else
+{
+<label>-> @Context.Session.GetInt32("qwe")</label>
+}
+<form method="post" class="mx-5 px-5">
+    <div class="form-group">
+        <label>Nome da Familia:</label>
+        <input asp-for="NomeCadastro" class="form-control" />
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Nome:</label>
+                <input asp-for="Nome" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>E-mail:</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Senha:</label>
+                <input asp-for="Senha" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Confirmar Senha:</label>
+                <input asp-for="ConfirmaSenha" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <center><input type="submit" value="Entrar" class="btn btn-success" /></center>
+
+    </div>
+</form>

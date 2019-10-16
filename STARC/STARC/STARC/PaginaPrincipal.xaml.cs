@@ -55,6 +55,23 @@ namespace STARC
             
         }
 
+        async void SwitchCell_Clicked(object sender, EventArgs a)
+        {
+            SwitchCell s = (sender as SwitchCell);
+
+            string id = s.ClassId;
+
+            var http = new HttpClient();
+            try
+            {
+                string url = "http://starc.azurewebsites.net/Componente/AlteraStatusMobile/" + id;
+                HttpResponseMessage result = await http.GetAsync(url);
+            }catch(Exception e)
+            {
+                await DisplayAlert("Erro", "Não foi possivel conectar ao servidor para alterar o status da sua lâmpada", "Cancelar");
+            }
+        }
+
         async void Clicked_ImageAsync(object sender, EventArgs a)
         {
             Button b = (sender as Button);

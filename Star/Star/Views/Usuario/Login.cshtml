@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model Star.Models.Usuario
+
+@if (Context.Session.GetInt32("Id") == null)
+{
+<label>Não tem!</label>
+}
+else
+{
+<label>@Context.Session.GetInt32("Id")</label>
+}
+
+@if (Context.Session.GetInt32("qwe") == null)
+{
+<label>Não apareceu!</label>
+}
+else
+{
+<label>-> @Context.Session.GetInt32("qwe")</label>
+}
+
+
+
+<form method="post" class="px-5 mx-5">
+    <div class="form-group">
+        <label>E-mail</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Senha</label>
+        <input asp-for="Senha" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Entrar" class="btn-block btn-success" />
+
+    </div>
+</form>
