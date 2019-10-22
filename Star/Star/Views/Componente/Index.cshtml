@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
 @{
     ViewData["Title"] = "Index";
 }
@@ -31,93 +31,120 @@
 
 
 
-<div class="container">
-    <br />
-    <center><h1>Componentes:</h1></center>
-    <br />
-    <div class="row">
-        <h3 class="pr-2">Adicionar</h3>
-        <a asp-controller="Componente" asp-action="Novo">
-            <img class="my-1" style="width: 25px; height: 25px" src="~/imagens/iconAdd.svg" alt="Adicionar Componente" />
-        </a>
-
-    </div>
-
-    <br />
-    <!--Div da Linha com 4 Cards-->
-    <div class="row">
-        <!--Div do Card com as informações-->
-        @foreach (Componente c in ViewBag.Dados)
+    <div class="container">
+        <br />
+        <center><h1>Componentes:</h1></center>
+        <br />
+        @if (ViewBag.Mensagem != null)
         {
-            @if (c.Status == true)
-            {
-                <div class="col-sm-2 d-flex">
-                    <div class="card bg-light border-dark flex-fill">
-                        <div class="card-header bg-transparent border-dark flex-fill">
-                            <center>
-                                <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
-                                    <img src="~/imagens/LampadaLigada.svg">
-                                </a>
-                                <h5>@c.Nome</h5>
-                            </center>
-                        </div>
-                        <div class="card-footer bg-transparent border-dark">
-                            <div class="row">
-                                <div class="icone-botao mx-auto">
-                                    <a asp-controller="Componente" asp-action="Editar" asp-route-id="@c.Id">
-                                        <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Componente" />
-                                    </a>
-
-                                </div>
-
-                                <div class="icone-botao mx-auto">
-                                    <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
-                                       onclick="return confirm('Tem certeza que deseja excluir o componente?');">
-                                        <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }else
-            {
-                <div class="col-sm-2 d-flex">
-                    <div class="card bg-light border-dark flex-fill">
-                        <div class="card-header bg-transparent border-dark flex-fill">
-                            <center>
-                                <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
-                                    <img src="~/imagens/LampadaDesligada.svg">
-                                </a>
-                                <h5>@c.Nome</h5>
-                            </center>
-                        </div>
-                        <div class="card-footer bg-transparent border-dark">
-                            <div class="row">
-                                <div class="icone-botao mx-auto">
-                                    <a asp-controller="Componente" asp-action="Editar" asp-route-id="@c.Id">
-                                        <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Componente" />
-                                    </a>
-
-                                </div>
-
-                                <div class="icone-botao mx-auto">
-                                    <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
-                                        onclick="return confirm('Tem certeza que deseja excluir o componente?');">
-                                        <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
+            <label class="alert alert-danger">@ViewBag.Mensagem</label>
         }
+        @if (ViewBag.MensagemErroGrupo != null)
+        {
+            
+            <label class="alert alert-danger">@ViewBag.MensagemErro</label>
+        }
+        <div class="row">
+            <h3 class="pr-2">Adicionar</h3>
+            <a asp-controller="Componente" asp-action="Adicionar">
+                <img class="my-1" style="width: 25px; height: 25px" src="~/imagens/iconAdd.svg" alt="Adicionar Componente" />
+            </a>
 
+        </div>
+
+        <br />
+        <!--Div da Linha com 4 Cards-->
+        <div class="row">
+            <!--Div do Card com as informações-->
+            @foreach (Componente c in ViewBag.Dados)
+            {
+                @if (c.Status == true)
+                {
+                    <div class="col-sm-2 d-flex">
+                        <div class="card bg-light border-dark flex-fill">
+                            <div class="card-header bg-transparent border-dark flex-fill">
+                                <center>
+                                    <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
+                                        <img src="~/imagens/LampadaLigada.svg">
+                                    </a>
+                                    <h5>@c.Nome</h5>
+                                </center>
+                            </div>
+                            <div class="card-footer bg-transparent border-dark">
+                                <div class="row">
+                                    <div class="icone-botao mx-auto">
+                                        @if (c.ComponenteGrupos.Count() > 0)
+                                        {
+                                            <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id" onclick="return confirm('Deseja remover esse componente do grupo?');">
+                                                <img src="~/imagens/LampadaLigada.svg">
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
+                                                <img src="~/imagens/LampadaLigada.svg">
+                                            </a>
+                                        }
+
+                                    </div>
+
+                                    <div class="icone-botao mx-auto">
+                                        <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
+                                           onclick="return confirm('Tem certeza que deseja excluir o componente?');">
+                                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-sm-2 d-flex">
+                        <div class="card bg-light border-dark flex-fill">
+                            <div class="card-header bg-transparent border-dark flex-fill">
+                                <center>
+                                    @if(c.ComponenteGrupos.Count() > 0)
+                                    {
+                                        <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id" onclick="return confirm('Deseja remover esse componente do grupo?');">
+                                            <img src="~/imagens/LampadaDesligada.svg">
+                                        </a>
+                                    }else{
+                                        <a asp-controller="Componente" asp-action="AlteraStatus" asp-route-id="@c.Id">
+                                            <img src="~/imagens/LampadaDesligada.svg">
+                                        </a>
+                                    }
+                                            
+                                    <h5>@c.Nome</h5>
+                                </center>
+                            </div>
+                            <div class="card-footer bg-transparent border-dark">
+                                <div class="row">
+                                    <div class="icone-botao mx-auto">
+                                        <a asp-controller="Componente" asp-action="Editar" asp-route-id="@c.Id">
+                                            <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Componente" />
+                                        </a>
+
+                                    </div>
+
+                                    <div class="icone-botao mx-auto">
+                                        <a asp-controller="Componente" asp-action="Excluir" asp-route-id="@c.Id"
+                                           onclick="return confirm('Tem certeza que deseja excluir o componente?');">
+                                            <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Componente" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
     </div>
-</div>
-   
-<!--     
+
+<!--
         <div class="col-sm-2 d-flex">
             <div class="card bg-light border-dark flex-fill">
                 <div class="card-header bg-transparent border-dark flex-fill">

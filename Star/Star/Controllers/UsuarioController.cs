@@ -18,7 +18,6 @@ namespace Star.Controllers
 
         public IActionResult Cadastro()
         {
-            HttpContext.Session.SetString("qwe", "asd");
             
             return View();
         }

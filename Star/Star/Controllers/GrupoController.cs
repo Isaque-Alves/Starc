@@ -120,7 +120,7 @@ namespace Star.Controllers
         }
         public IActionResult Visualizar(int id)
         {
-            ViewBag.Componentes = Ctx.ComponenteGrupos.Where(cg => cg.GrupoId == id).Include(c => c.Componente);
+            ViewBag.Componentes = Ctx.ComponenteGrupos.Where(cg => cg.GrupoId == id && cg.Ativo == true).Include(c => c.Componente);
 
             return View();
         }

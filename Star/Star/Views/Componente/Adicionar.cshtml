@@ -1,0 +1,24 @@
+﻿@model Star.Models.Componente
+
+<a asp-controller="Componente" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
+
+<br />
+
+<center><h1>Componente:</h1></center>
+
+<br />
+<br />
+<form method="post">
+
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Insira o ID do seu produto" name="id">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>

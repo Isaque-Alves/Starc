@@ -33,6 +33,7 @@ namespace Star
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            
 
             services.AddDbContext<AppContext>(o => o.UseMySql("Server=remotemysql.com;Port=3306;Database=k976bDekh3;Uid=k976bDekh3;Pwd=XfsvduEaoj;"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -66,6 +67,7 @@ namespace Star
             app.UseStaticFiles();
             app.UseSession();
             app.UseCookiePolicy();
+            
 
             app.UseMvc(routes =>
             {

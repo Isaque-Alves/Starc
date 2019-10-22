@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Star;
 
 namespace Star.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20191022131651_mudaNull")]
+    partial class mudaNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,7 +202,7 @@ namespace Star.Migrations
             modelBuilder.Entity("Star.Models.ComponenteGrupo", b =>
                 {
                     b.HasOne("Star.Models.Componente", "Componente")
-                        .WithMany("ComponenteGrupos")
+                        .WithMany()
                         .HasForeignKey("ComponenteId")
                         .OnDelete(DeleteBehavior.Cascade);
 

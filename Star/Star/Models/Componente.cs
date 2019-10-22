@@ -10,8 +10,7 @@ namespace Star.Models
     public class Componente
     {
         public int Id { get; set; }
-        [Required]
-        public int CadastroId { get; set; }
+        public int? CadastroId { get; set; }
         [Required]
         public int TipoComponenteId { get; set; }
         [Required]
@@ -21,7 +20,7 @@ namespace Star.Models
         public Cadastro Cadastro { get; set; }
         public TipoComponente TipoComponente { get; set; }
 
-        [NotMapped]
+
         public IEnumerable<ComponenteGrupo> ComponenteGrupos { get; set; }
 
         public IEnumerable<Registro> Registros { get; set; }
