@@ -92,6 +92,8 @@ namespace Star.Controllers
             {
                 return RedirectToAction("index");
             }
+            ViewBag.Componente = Ctx.Componentes;
+            
             return View("Form", grupo);
         }
         [HttpPost]
@@ -100,6 +102,29 @@ namespace Star.Controllers
             if (ModelState.IsValid)
             {
                 Ctx.Grupos.Update(grupo);
+                Ctx.SaveChanges();
+
+                IEnumerable<ComponenteGrupo> cg = Ctx.ComponenteGrupos.Where(a => a.GrupoId == grupo.Id);
+
+                foreach (ComponenteGrupo componenteg in cg)
+                {
+                    Ctx.ComponenteGrupos.Remove(componenteg);
+                }
+
+                Ctx.SaveChanges();
+
+                foreach (int idComponente in grupo.Componentes)
+                {
+                    ComponenteGrupo cgg = new ComponenteGrupo();
+
+                    cgg.GrupoId = grupo.Id;
+                    cgg.ComponenteId = idComponente;
+                    cgg.Ativo = true;
+
+                    Ctx.ComponenteGrupos.Add(cgg);
+
+                }
+
                 Ctx.SaveChanges();
             }
             else
@@ -113,6 +138,13 @@ namespace Star.Controllers
             Grupo grupo = Ctx.Grupos.Find(id);
             if (grupo!= null)
             {
+                IEnumerable<ComponenteGrupo> cg = Ctx.ComponenteGrupos.Where(a => a.GrupoId == id);
+
+                foreach (ComponenteGrupo componenteg in cg)
+                {
+                    Ctx.ComponenteGrupos.Remove(componenteg);
+                    Ctx.SaveChanges();
+                }
                 Ctx.Grupos.Remove(grupo);
                 Ctx.SaveChanges();
             }

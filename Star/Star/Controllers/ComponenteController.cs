@@ -42,20 +42,22 @@ namespace Star.Controllers
             int hi = 0;
             int hf = 0;
             int atual = 0;
-
+            TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+            DateTime dt = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, tz);
             foreach (ComponenteGrupo cgAtual in cg)
             {
                 hi = (cgAtual.Grupo.HorarioInicial.Hour * 60) + cgAtual.Grupo.HorarioInicial.Minute;
                 hf = (cgAtual.Grupo.HorarioFinal.Hour * 60) + cgAtual.Grupo.HorarioFinal.Minute;
-                atual = (DateTime.Now.Hour * 60) + DateTime.Now.Minute;
-                if(
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Monday && cgAtual.Grupo.Segunda == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Tuesday && cgAtual.Grupo.Terca == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday && cgAtual.Grupo.Quarta == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Thursday && cgAtual.Grupo.Quinta == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Friday && cgAtual.Grupo.Sexta == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Saturday && cgAtual.Grupo.Sabado == true) ||
-                    (DateTime.Now.DayOfWeek == DayOfWeek.Sunday && cgAtual.Grupo.Domingo == true)
+                atual = (dt.Hour * 60) + dt.Minute;
+                if (
+                    
+                    (dt.DayOfWeek == DayOfWeek.Monday && cgAtual.Grupo.Segunda == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Tuesday && cgAtual.Grupo.Terca == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Wednesday && cgAtual.Grupo.Quarta == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Thursday && cgAtual.Grupo.Quinta == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Friday && cgAtual.Grupo.Sexta == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Saturday && cgAtual.Grupo.Sabado == true) ||
+                    (dt.DayOfWeek == DayOfWeek.Sunday && cgAtual.Grupo.Domingo == true)
                     )
                 {
                     if (atual >= hi && atual <= hf)
