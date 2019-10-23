@@ -16,6 +16,12 @@ namespace Star.Controllers
             _Ctx = bancoContext;
         }
 
+        public IActionResult Index()
+        {
+
+            return View();
+        }
+
         public IActionResult Cadastro()
         {
             
@@ -36,9 +42,10 @@ namespace Star.Controllers
                 u.CadastroId = c.Id;
                 _Ctx.Usuarios.Add(u);
                 _Ctx.SaveChanges();
+                return RedirectToAction("Cadastro");
             }
-
-            return RedirectToAction("Cadastro");
+            ViewBag.error = "deu erro";
+            return RedirectToAction("Cadastro", u);
         }
 
         public IActionResult Login()
@@ -53,6 +60,7 @@ namespace Star.Controllers
 
             if(usuario != null)
             {
+                
                 HttpContext.Session.SetInt32("Id", usuario.Id);
                 HttpContext.Session.SetInt32("CadastroId", usuario.CadastroId);
                 HttpContext.Session.SetString("Nome", usuario.Nome);
@@ -65,9 +73,11 @@ namespace Star.Controllers
                 {
                     HttpContext.Session.SetInt32("Adm", 0);
                 }
+                return RedirectToAction("Inicio", "Home");
             }
 
-            return View("Login", usuario);
+            ViewBag.Mensagem = "erro";
+            return RedirectToAction("Login", u);
         }
 
         [HttpGet]

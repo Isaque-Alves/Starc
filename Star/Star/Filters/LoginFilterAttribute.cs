@@ -19,7 +19,7 @@ namespace Star.Filters
             if (idUsuario == null)
             {
 
-                context.Result = new RedirectToRouteResult(new { controller = "componente", action = "index", });
+                context.Result = new RedirectToRouteResult(new { controller = "home", action = "Index", });
             }
             else if (context.HttpContext.Session.GetInt32("Adm") != 1 && Adm)
             {

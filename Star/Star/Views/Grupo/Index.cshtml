@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
 @*Barra de Navegação*@
 <!--
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -35,90 +35,91 @@
     <br />
     @foreach (Grupo g in ViewBag.Grupo)
     {
-        <div class="card">
-            <div class="card-header">
-                <h3>@g.Nome</h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <h5>Descrição: </h5>
-                        <p class="card-text">@g.Descricao</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <h5>Dias Da Semana: </h5>
-                        <p class="card-text">
-                            @if (g.Segunda)
-                            {
-                                <label>Segunda</label>
-                            }
-                            @if (g.Terca)
-                            {
-                                <label>Terça</label>
-                            }
-                            @if (g.Quarta)
-                            {
-                                <label>Quarta</label>
-                            }
-                            @if (g.Quinta)
-                            {
-                                <label> Quinta</label>
-                            }
-                            @if (g.Sexta)
-                            {
-                                <label>Sexta</label>
-                            }
-                            @if (g.Sabado)
-                            {
-                                <label>Sábado</label>
-                            }
-                            @if (g.Domingo)
-                            {
-                                <label>Domingo</label>
-                            }
-                        </p>
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>Horario Inicial: </h5>
-                        <p class="card-text">@g.HorarioInicial.ToString("t")</p>
-                    </div>
-                    <div class="col-sm-2">
-                        <h5>Horario Final: </h5>
-                        <p class="card-text">@g.HorarioFinal.ToString("t")</p>
-                    </div>
+        
+            <div class="card">
+                <div class="card-header">
+                    <h3>@g.Nome</h3>
                 </div>
-
-
-            </div>
-            <div class="card-footer">
-                <div class="row">
-                    <div class="col-sm-5"></div>
-                    <div class="col-sm-2">
-                        <div class="row">
-                            <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="@g.Id">
-                                    <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
-                                </a>
-
-                            </div>
-                            <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Editar" asp-route-id="@g.Id">
-                                    <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
-                                </a>
-
-                            </div>
-                            <div class="icone-botao mx-auto">
-                                <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="@g.Id">
-                                    <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
-                                </a>
-
-                            </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h5>Descrição: </h5>
+                            <p class="card-text">@g.Descricao</p>
                         </div>
-
+                        <div class="col-sm-3">
+                            <h5>Dias Da Semana: </h5>
+                            <p class="card-text">
+                                @if (g.Segunda)
+                                {
+                                    <label>Segunda</label>
+                                }
+                                @if (g.Terca)
+                                {
+                                    <label>Terça</label>
+                                }
+                                @if (g.Quarta)
+                                {
+                                    <label>Quarta</label>
+                                }
+                                @if (g.Quinta)
+                                {
+                                    <label> Quinta</label>
+                                }
+                                @if (g.Sexta)
+                                {
+                                    <label>Sexta</label>
+                                }
+                                @if (g.Sabado)
+                                {
+                                    <label>Sábado</label>
+                                }
+                                @if (g.Domingo)
+                                {
+                                    <label>Domingo</label>
+                                }
+                            </p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h5>Horario Inicial: </h5>
+                            <p class="card-text">@g.HorarioInicial.ToString("t")</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h5>Horario Final: </h5>
+                            <p class="card-text">@g.HorarioFinal.ToString("t")</p>
+                        </div>
                     </div>
-                    <div class="col-sm-5"></div>
+
+
                 </div>
-            </div>
-        </div><br />
-    }
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-5"></div>
+                        <div class="col-sm-2">
+                            <div class="row">
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Grupo" asp-action="Visualizar" asp-route-id="@g.Id">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconOlho.svg" alt="Visualizar Grupo" />
+                                    </a>
+
+                                </div>
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Grupo" asp-action="Editar" asp-route-id="@g.Id">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconEditar.svg" alt="Editar Grupo" />
+                                    </a>
+
+                                </div>
+                                <div class="icone-botao mx-auto">
+                                    <a asp-controller="Grupo" asp-action="Excluir" asp-route-id="@g.Id">
+                                        <img style="width: 30px; height: 30px" src="~/imagens/iconLixo.svg" alt="Excluir Grupo" />
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-5"></div>
+                    </div>
+                </div>
+            </div><br />
+        }
 </div>

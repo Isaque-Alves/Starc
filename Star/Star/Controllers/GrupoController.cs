@@ -33,6 +33,10 @@ namespace Star.Controllers
         {
             if (ModelState.IsValid)
             {
+                //if (Grupo.Componentes.Length == null)
+                
+                   // ViewBag.select = "Selecione um ou mais componentes!";
+                    //return View("Form", Grupo);
                 
                 Ctx.Grupos.Add(Grupo);
                 Ctx.SaveChanges();

@@ -19,7 +19,7 @@ namespace Star.Models
         [NotMapped]
         public String[] DiasSemana { get; set; }
         [NotMapped]
-        public int[] Componentes { get; set; }
+        public int?[] Componentes { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]

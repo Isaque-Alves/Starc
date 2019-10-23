@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
 @model Star.Models.Grupo
 <a asp-controller="Grupo" asp-action="Index"><img style="width: 4%; height: 4%" src="~/imagens/iconVoltar.svg" alt="Voltar" /></a>
 
@@ -8,103 +8,126 @@
 
 <br />
 <br />
-<form method="post">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="form-group">
-                <label>Nome:</label>
-                <input asp-for="Nome" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label>Descrição:</label>
-                <input asp-for="Descricao" class="form-control" />
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input asp-for="Nome" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Descrição:</label>
+                    <input asp-for="Descricao" class="form-control" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <label>Dias da Semana:</label>
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Segunda" class="from-check-input" />
-                    <label class="form-check-label">Segunda</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Terca" class="from-check-input" />
-                    <label class="form-check-label">Terça</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Quarta" class="from-check-input" />
-                    <label class="form-check-label">Quarta</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Quinta" class="from-check-input" />
-                    <label class="form-check-label">Quinta</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Sexta" class="from-check-input" />
-                    <label class="form-check-label">Sexta</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Sabado" class="from-check-input" />
-                    <label class="form-check-label">Sábado</label>
-                </div>
-            </div><br />
-            <div class="card">
-                <div class="card-body" style="padding: 0.5rem">
-                    &nbsp;&nbsp;
-                    <input type="checkbox" asp-for="Domingo" class="from-check-input" />
-                    <label class="form-check-label">Domingo</label>
-                </div>
-            </div><br />
-        </div>
-        <div class="col-sm-4">
-
-
-            <label>Componentes:</label>
-            @foreach (Componente c in ViewBag.Componente)
-            {
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Dias da Semana:</label>
                 <div class="card">
                     <div class="card-body" style="padding: 0.5rem">
-                        <input type="checkbox" name="Componentes[]" value="@c.Id" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
-                        <label class="form-check-label">@c.Nome</label>
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Segunda" class="from-check-input" />
+                            Segunda
+                        </label>
                     </div>
                 </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Terca" class="from-check-input" />
+                            Terça
+                        </label>
+                    </div>
+                </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Quarta" class="from-check-input" />
+                            Quarta
+                        </label>
+                    </div>
+                </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Quinta" class="from-check-input" />
+                            Quinta
+                        </label>
+                    </div>
+                </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Sexta" class="from-check-input" />
+                            Sexta
+                        </label>
+                    </div>
+                </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Sabado" class="from-check-input" />
+                            Sábado
+                        </label>
+                    </div>
+                </div><br />
+                <div class="card">
+                    <div class="card-body" style="padding: 0.5rem">
+                        &nbsp;&nbsp;
+                        <label class="form-check-label">
+                            <input type="checkbox" asp-for="Domingo" class="from-check-input" />
+                            Domingo
+                        </label>
+                    </div>
+                </div><br />
+            </div>
+            <div class="col-sm-4">
+                @if (ViewBag.select != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.select;
+                    </div>
+                }
 
-            }
-        </div>
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label>Horário Inicial:</label>
-                <input type="time" asp-for="HorarioInicial" class="form-control" />
+                <label>Componentes:</label>
+                @foreach (Componente c in ViewBag.Componente)
+                {
+                    @if (c.CadastroId == Context.Session.GetInt32("CadastroId"))
+                    {
+                        <div class="card">
+                            <div class="card-body" style="padding: 0.5rem">
+                                <input type="checkbox" name="Componentes[]" value="@c.Id" class="from-check-input" /><!--<input type="checkbox" class="from-check-input" name="Componente[]" value="->Id<-" />-->
+                                <label class="form-check-label">@c.Nome</label>
+                            </div>
+                        </div><br />
+                    }
+                }
             </div>
 
-            <div class="form-group">
-                <label>Horário Final:</label>
-                <input type="time" asp-for="HorarioFinal" class="form-control" />
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label>Horário Inicial:</label>
+                    <input type="time" asp-for="HorarioInicial" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Horário Final:</label>
+                    <input type="time" asp-for="HorarioFinal" class="form-control" />
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <center><input type="submit" value="Salvar"/></center>
-    </div>
-</form>
+        <div class="form-group">
+            <center><input type="submit" value="Salvar" class="btn btn-success"/></center>
+        </div>
+    </form>
+</div>
