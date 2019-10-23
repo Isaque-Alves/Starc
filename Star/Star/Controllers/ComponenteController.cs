@@ -124,6 +124,8 @@ namespace Star.Controllers
                 Text = tc.Nome,
                 Value = tc.Id.ToString()
             });
+            
+             
 
             return View("Form");
         }
@@ -134,6 +136,7 @@ namespace Star.Controllers
         {
             Ctx.Componentes.Add(componente);
             Ctx.SaveChanges();
+            ViewBag.Id = componente.Id;
 
             return RedirectToAction("index");
         }

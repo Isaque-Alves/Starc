@@ -13,7 +13,7 @@ namespace Star.Controllers
     public class GrupoController : Controller
     {
         private AppContext Ctx;
-        public GrupoController (AppContext appContext)
+        public GrupoController(AppContext appContext)
         {
             Ctx = appContext;
         }
@@ -31,13 +31,40 @@ namespace Star.Controllers
         [HttpPost]
         public IActionResult Novo(Grupo Grupo)
         {
+            ViewBag.Grupo = Ctx.Grupos;
+            bool[] dias = new bool[]
+            {
+                Grupo.Segunda,
+                Grupo.Terca,
+                Grupo.Quarta,
+                Grupo.Quinta,
+                Grupo.Sexta,
+                Grupo.Sabado,
+                Grupo.Domingo,
+
+
+            };
+            ViewBag.Componente = Ctx.Componentes;
             if (ModelState.IsValid)
             {
-                //if (Grupo.Componentes.Length == null)
-                
-                   // ViewBag.select = "Selecione um ou mais componentes!";
-                    //return View("Form", Grupo);
-                
+                if (Array.IndexOf(dias, true) == -1)
+                {
+                    ViewBag.select = "Selecione um ou mais dias!";
+                    return View("Form", Grupo);
+                }
+
+                if (Grupo.Componentes == null || Grupo.Componentes.Count() == 0)
+                {
+                    ViewBag.select = "Selecione um ou mais componentes!";
+                    return View("Form", Grupo);
+                }
+                if(Grupo.HorarioInicial > Grupo.HorarioFinal)
+                {
+                    ViewBag.Horario = "Horário incorreto!";
+                    return View("Form",Grupo);
+                }
+
+
                 Ctx.Grupos.Add(Grupo);
                 Ctx.SaveChanges();
                 foreach (int idComponente in Grupo.Componentes)
@@ -49,62 +76,64 @@ namespace Star.Controllers
                     cg.Ativo = true;
 
                     Ctx.ComponenteGrupos.Add(cg);
-
                 }
-                
+
                 Ctx.SaveChanges();
+
             }
             else
             {
+
                 return View("Form", Grupo);
             }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Segunda";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Terça";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Quarta";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Quinta";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Sexta";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Sábado";
-                }
-                if (Grupo.Segunda == true)
-                {
-                    ViewData["Grupo"] += "Domingo";
-                }
             
-            return RedirectToAction("index");
+
+            return View("index");
         }
         public IActionResult Editar(int id)
         {
             Grupo grupo = Ctx.Grupos.Find(id);
-            if(grupo == null)
+            if (grupo == null)
             {
                 return RedirectToAction("index");
             }
             ViewBag.Componente = Ctx.Componentes;
-            
+
             return View("Form", grupo);
         }
+
         [HttpPost]
         public IActionResult Editar(Grupo grupo)
         {
+            bool[] dias = new bool[]
+            {
+                grupo.Segunda,
+                grupo.Terca,
+                grupo.Quarta,
+                grupo.Quinta,
+                grupo.Sexta,
+                grupo.Sabado,
+                grupo.Domingo,
+
+
+            };
+            ViewBag.Componente = Ctx.Componentes;
             if (ModelState.IsValid)
             {
+                if (Array.IndexOf(dias, true) == -1)
+                {
+                    ViewBag.select = "Selecione um ou mais dias!";
+                    return View("Form", grupo);
+                }
+
+                if (grupo.Componentes == null || grupo.Componentes.Count() == 0)
+                {
+                    ViewBag.select = "Selecione um ou mais componentes!";
+                    return View("Form", grupo);
+                }
+
+
+
                 Ctx.Grupos.Update(grupo);
                 Ctx.SaveChanges();
 
@@ -130,24 +159,27 @@ namespace Star.Controllers
                 }
 
                 Ctx.SaveChanges();
+
+
             }
             else
             {
                 return View("Form", grupo);
             }
-            return RedirectToAction("index");
+
+            return View("index");
         }
-        public IActionResult Excluir (int id)
+        public IActionResult Excluir(int id)
         {
             Grupo grupo = Ctx.Grupos.Find(id);
-            if (grupo!= null)
+            if (grupo != null)
             {
                 IEnumerable<ComponenteGrupo> cg = Ctx.ComponenteGrupos.Where(a => a.GrupoId == id);
 
                 foreach (ComponenteGrupo componenteg in cg)
                 {
                     Ctx.ComponenteGrupos.Remove(componenteg);
-                    Ctx.SaveChanges();
+                    
                 }
                 Ctx.Grupos.Remove(grupo);
                 Ctx.SaveChanges();

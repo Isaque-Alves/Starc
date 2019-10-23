@@ -49,34 +49,7 @@
                         <div class="col-sm-3">
                             <h5>Dias Da Semana: </h5>
                             <p class="card-text">
-                                @if (g.Segunda)
-                                {
-                                    <label>Segunda</label>
-                                }
-                                @if (g.Terca)
-                                {
-                                    <label>Terça</label>
-                                }
-                                @if (g.Quarta)
-                                {
-                                    <label>Quarta</label>
-                                }
-                                @if (g.Quinta)
-                                {
-                                    <label> Quinta</label>
-                                }
-                                @if (g.Sexta)
-                                {
-                                    <label>Sexta</label>
-                                }
-                                @if (g.Sabado)
-                                {
-                                    <label>Sábado</label>
-                                }
-                                @if (g.Domingo)
-                                {
-                                    <label>Domingo</label>
-                                }
+                                @g.DiasDaSemanaHabilitados()
                             </p>
                         </div>
                         <div class="col-sm-2">

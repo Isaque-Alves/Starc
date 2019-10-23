@@ -72,10 +72,10 @@ else
                     </button>
                 </div>
                 <div class='modal-body'>
-                    Senhas não coincidem!
+                    @ViewBag.erro
                 </div>
                 <div class='modal-footer'>
-                    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                    <button type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</button>
                 </div>
             </div>
         </div>
@@ -86,6 +86,35 @@ else
         };
     </script>
 }
+
+@if (ViewBag.Validou != null)
+{
+    <div class='modal fade' id='ModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
+        <div class='modal-dialog modal-dialog-centered' role='document'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <h5 class='modal-title' id='exampleModalLongTitle'>Login</h5>
+                    <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                        <span aria-hidden='true'>&times;</span>
+                    </button>
+                </div>
+                <div class='modal-body'>
+                    @ViewBag.Validou
+                </div>
+                <div class='modal-footer'>
+                    <input asp-controller="Home" asp-action="Inicio" type='button' class='btn btn-secondary' data-dismiss='modal' value="Fechar"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function abre() {
+            $('#ModalCenter').modal();
+        };
+    </script>
+}
+
+
 
 
 <div class="limiter">
@@ -100,13 +129,7 @@ else
                     Criar Conta
                 </span>
 
-                <div class="wrap-input100 validate-input" data-validate="Digite um nome. Exemplo: Família Starc">
-                    <input asp-for="NomeCadastro" class="input100" type="text" placeholder="Nome do grupo de usuários">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
-                    </span>
-                </div>
+
 
                 <div class="wrap-input100 validate-input" data-validate="Digite seu nome. Exemplo: José">
                     <input asp-for="Nome" class="input100" type="text" placeholder="Nome">
@@ -140,6 +163,17 @@ else
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
+
+                <div class="wrap-input100">
+                    <select asp-for="TipoUsuarioId" class="input100" asp-items="ViewBag.TipoUsuario" required="">
+                        <option></option>
+                    </select>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+
 
                 <div class="container-login100-form-btn">
                     <input type="submit" value="Criar conta" class="login100-form-btn" data-toggle="modal" data-target="#exampleModalCenter">

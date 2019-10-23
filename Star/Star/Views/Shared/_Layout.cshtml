@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/css/colorful.css">
-    <script src="~/js/navbar-ontop.js"></script>
+    
 
     <!--=====================================LOGIN==========================================================-->
     <link rel="icon" type="image/png" href="~/images/icons/favicon.ico" />
@@ -55,13 +55,19 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Componente" asp-action="Index">Componente</a>
+                                <a class="nav-link " asp-area="" asp-controller="Componente" asp-action="Index">Componente</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Grupo" asp-action="Index">Grupos</a>
+                                <a class="nav-link " asp-area="" asp-controller="Grupo" asp-action="Index">Grupos</a>
                             </li>
+                            @if (Context.Session.GetInt32("Adm") == 1)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Usuario" asp-action="CadastroNormal">Cadastrar novo usuário</a>
+                                </li>
+                            }
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Logout">Sair</a>
+                                <a class="nav-link " asp-area="" asp-controller="Usuario" asp-action="Logout">Sair</a>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +79,7 @@
     }
     else
     {
-        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <nav class="navbar navbar-expand fixed-top navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="#"><b>Starc</b></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>

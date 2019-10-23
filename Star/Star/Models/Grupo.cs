@@ -35,5 +35,40 @@ namespace Star.Models
         public bool Ativo { get; set; }
 
         public IEnumerable<ComponenteGrupo> ComponenteGrupos { get; set; }
+
+        public string DiasDaSemanaHabilitados()
+        {
+            List<string> dias = new List<string>();
+
+            if(Segunda)
+            {
+                dias.Add("Segunda");
+            }
+            if (Terca)
+            {
+                dias.Add("Terça");
+            }
+            if (Quarta)
+            {
+                dias.Add("Quarta");
+            }
+            if (Quinta)
+            {
+                dias.Add("Quinta");
+            }
+            if (Sexta)
+            {
+                dias.Add("Sexta");
+            }
+            if (Sabado)
+            {
+                dias.Add("Sábado");
+            }
+            if (Domingo)
+            {
+                dias.Add("Domingo");
+            }
+            return string.Join(", ",dias) ;
+        }
     }
 }
