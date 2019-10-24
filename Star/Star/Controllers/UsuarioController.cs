@@ -91,7 +91,7 @@ namespace Star.Controllers
                 _Ctx.Usuarios.Add(u);
                 _Ctx.SaveChanges();
                 ViewBag.validacao = "Usuário cadastrado com sucesso!!";
-                return RedirectToAction("Cadastro");
+                return View("Cadastro");
             }
             ViewBag.validacao = "Senhas não coincidem";
             return View("Cadastro", u);
