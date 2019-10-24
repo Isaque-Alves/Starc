@@ -102,7 +102,7 @@ else
                     @ViewBag.Validou
                 </div>
                 <div class='modal-footer'>
-                    <input asp-controller="Home" asp-action="Inicio" type='button' class='btn btn-secondary' data-dismiss='modal' value="Fechar"/>
+                    <a asp-controller="Home" asp-action="Inicio" type='button' class='btn btn-secondary' data-dismiss='modal'>Fechar</a>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@ else
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Digite uma senha válida">
-                    <input asp-for="Senha" class="input100" type="password" placeholder="Confirmar senha">
+                    <input asp-for="ConfirmaSenha" class="input100" type="password" placeholder="Confirmar senha">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>

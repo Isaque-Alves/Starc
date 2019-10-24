@@ -105,6 +105,7 @@ namespace Star.Controllers
         [HttpPost]
         public IActionResult Editar(Grupo grupo)
         {
+            ViewBag.Grupo = Ctx.Grupos;
             bool[] dias = new bool[]
             {
                 grupo.Segunda,

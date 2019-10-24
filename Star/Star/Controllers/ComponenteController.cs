@@ -137,8 +137,9 @@ namespace Star.Controllers
             Ctx.Componentes.Add(componente);
             Ctx.SaveChanges();
             ViewBag.Id = componente.Id;
+            ViewBag.Dados = Ctx.Componentes.Include(c => c.Cadastro).Include(tp => tp.TipoComponente).Include(d => d.ComponenteGrupos).Where(a => a.CadastroId == HttpContext.Session.GetInt32("CadastroId")).OrderBy(c => c.Nome);
 
-            return RedirectToAction("index");
+            return View("index");
         }
 
         [LoginFilter(Adm = true)]

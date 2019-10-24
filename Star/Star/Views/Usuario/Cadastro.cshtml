@@ -60,7 +60,7 @@ else
 </form>
     -->
 
-@if (ViewBag.erro != null)
+@if (ViewBag.validacao != null)
 {
     <div class='modal fade' id='ModalCenter' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>
         <div class='modal-dialog modal-dialog-centered' role='document'>
@@ -72,7 +72,7 @@ else
                     </button>
                 </div>
                 <div class='modal-body'>
-                    Senhas não coincidem!
+                    @ViewBag.validacao
                 </div>
                 <div class='modal-footer'>
                     <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
@@ -134,7 +134,7 @@ else
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Digite uma senha válida">
-                    <input asp-for="Senha" class="input100" type="password" placeholder="Confirmar senha">
+                    <input asp-for="ConfirmaSenha" class="input100" type="password" placeholder="Confirmar senha">
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
                         <i class="fa fa-lock" aria-hidden="true"></i>

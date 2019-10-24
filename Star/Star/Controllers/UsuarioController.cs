@@ -37,7 +37,7 @@ namespace Star.Controllers
         public IActionResult CadastroNormal(Usuario u)
         {
             Usuario valida = _Ctx.Usuarios.Where(a => a.Email == u.Email).FirstOrDefault();
-            if (valida != null)
+            if (valida == null)
             {
                 if (u.ConfirmaSenha == u.Senha)
                 {
@@ -59,6 +59,11 @@ namespace Star.Controllers
                 }
             }
 
+            ViewBag.TipoUsuario = _Ctx.TipoUsuarios.OrderBy(tc => tc.Nome).Select(tc => new SelectListItem
+            {
+                Text = tc.Nome,
+                Value = tc.Id.ToString()
+            });
             ViewBag.Erro = "Esse usuário já existe!";
             return View("CadastroNormal", u);
         }
@@ -85,9 +90,10 @@ namespace Star.Controllers
                 u.CadastroId = c.Id;
                 _Ctx.Usuarios.Add(u);
                 _Ctx.SaveChanges();
+                ViewBag.validacao = "Usuário cadastrado com sucesso!!";
                 return RedirectToAction("Cadastro");
             }
-            ViewBag.erro = "deu erro";
+            ViewBag.validacao = "Senhas não coincidem";
             return View("Cadastro", u);
         }
 
